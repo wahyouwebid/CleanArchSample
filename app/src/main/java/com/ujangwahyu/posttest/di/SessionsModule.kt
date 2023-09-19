@@ -1,7 +1,7 @@
 package com.ujangwahyu.posttest.di
 
 import android.content.Context
-import com.ujangwahyu.posttest.core.Sessions
+import com.ujangwahyu.posttest.core.SharedPref
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +22,6 @@ class SessionsModule {
 
     @Provides
     @Singleton
-    fun provideSessions(@ApplicationContext context: Context): Sessions = Sessions(context)
+    fun provideSessions(@ApplicationContext context: Context): SharedPref = SharedPref(context)
 
 }

@@ -39,28 +39,28 @@ class SignFragment: BaseFragment<FragmentSignInBinding>(FragmentSignInBinding::i
         }
 
         btnSignin.setOnClickListener {
-            viewModel.signIn(
-                binding,
-                etUsername.text.toString(),
-                etPassword.text.toString(),
-            )
+            viewModel.signIn(binding)
         }
 
         btnSignup.setOnClickListener {
-            navigation?.navigate(R.id.action_signFragment_to_signUpFragment)
+            goToSignUp()
         }
     }
 
     override fun setupViewModel() {
         viewModel.signIn.observe(viewLifecycleOwner) {
-            Toast.makeText(requireContext(), "${it.name}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
         }
 
-        viewModel.errorMessageSignIn.observe(viewLifecycleOwner) {
+        viewModel.errorMessage.observe(viewLifecycleOwner) {
             if (it != null) {
                 showMessage(it)
             }
         }
+    }
+
+    private fun goToSignUp() {
+        navigation?.navigate(R.id.action_signFragment_to_signUpFragment)
     }
 
     private fun showMessage(message: String) {

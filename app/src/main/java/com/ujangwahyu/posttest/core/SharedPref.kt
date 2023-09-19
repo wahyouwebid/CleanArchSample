@@ -16,7 +16,7 @@ import androidx.security.crypto.MasterKey
  */
 
 @SuppressLint("CommitPrefEdits")
-class Sessions constructor(
+class SharedPref constructor(
     val context: Context
 ) {
     companion object {
@@ -27,8 +27,8 @@ class Sessions constructor(
         const val name = "name"
         const val username = "username"
         const val nik = "nik"
-        const val email = "username"
-        const val password = "username"
+        const val email = "email"
+        const val password = "password"
     }
 
     private var editor: SharedPreferences.Editor? = null

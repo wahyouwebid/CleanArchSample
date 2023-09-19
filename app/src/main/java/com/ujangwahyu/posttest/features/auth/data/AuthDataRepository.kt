@@ -1,7 +1,7 @@
 package com.ujangwahyu.posttest.features.auth.data
 
 import com.ujangwahyu.posttest.common.encodeBase64
-import com.ujangwahyu.posttest.core.Sessions
+import com.ujangwahyu.posttest.core.SharedPref
 import com.ujangwahyu.posttest.features.auth.domain.AuthRepository
 import com.ujangwahyu.posttest.features.auth.domain.model.User
 import javax.inject.Inject
@@ -14,26 +14,26 @@ import javax.inject.Inject
  */
 
 class AuthDataRepository @Inject constructor(
-    private val sessions: Sessions
+    private val sharedPref: SharedPref
 ): AuthRepository {
 
     override fun signUp(user: User) {
-        sessions.apply {
-            putString(Sessions.name, user.name)
-            putString(Sessions.username, user.username)
-            putString(Sessions.nik, user.nik)
-            putString(Sessions.email, user.email)
-            putString(Sessions.password, user.password?.encodeBase64())
+        sharedPref.apply {
+            putString(SharedPref.name, user.name)
+            putString(SharedPref.username, user.username)
+            putString(SharedPref.nik, user.nik)
+            putString(SharedPref.email, user.email)
+            putString(SharedPref.password, user.password?.encodeBase64())
         }
     }
 
     override fun signIn(): User {
         return User(
-            sessions.getString(Sessions.name),
-            sessions.getString(Sessions.username),
-            sessions.getString(Sessions.nik),
-            sessions.getString(Sessions.email),
-            sessions.getString(Sessions.password),
+            sharedPref.getString(SharedPref.name),
+            sharedPref.getString(SharedPref.username),
+            sharedPref.getString(SharedPref.nik),
+            sharedPref.getString(SharedPref.email),
+            sharedPref.getString(SharedPref.password),
         )
     }
 

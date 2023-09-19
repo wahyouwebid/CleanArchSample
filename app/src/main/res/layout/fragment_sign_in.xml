@@ -147,7 +147,7 @@
         android:layout_height="@dimen/_53sdp"
         android:background="@drawable/bg_rounded_all_primary_stroke"
         android:fontFamily="@font/poppins_bold"
-        android:text="@string/title_login"
+        android:text="@string/title_signup"
         android:layout_margin="@dimen/_24sdp"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary"

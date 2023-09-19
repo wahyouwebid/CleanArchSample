@@ -1,6 +1,6 @@
 package com.ujangwahyu.posttest.features.auth.data.di
 
-import com.ujangwahyu.posttest.core.Sessions
+import com.ujangwahyu.posttest.core.SharedPref
 import com.ujangwahyu.posttest.features.auth.data.AuthDataRepository
 import com.ujangwahyu.posttest.features.auth.domain.AuthRepository
 import dagger.Module
@@ -14,9 +14,9 @@ class AuthDataModule {
 
     @Provides
     fun provideRepository(
-        sessions: Sessions
+        sharedPref: SharedPref
     ): AuthRepository {
-        return AuthDataRepository(sessions)
+        return AuthDataRepository(sharedPref)
     }
 
 }
