@@ -94,6 +94,8 @@ dependencies {
     }
 
     Dependencies.TestingLib.apply {
+        testImplementation(robolectric)
+        testImplementation(mockito)
         testImplementation(androidJunit)
         androidTestImplementation(espresso)
         androidTestImplementation(junit)

@@ -1,7 +1,9 @@
 package com.ujangwahyu.posttest.features.auth.data
 
+import android.util.Base64
 import com.ujangwahyu.posttest.common.encodeBase64
-import com.ujangwahyu.posttest.core.SharedPref
+import com.ujangwahyu.posttest.core.encrypted.Base64EncoderDecoder
+import com.ujangwahyu.posttest.core.sharepref.SharedPref
 import com.ujangwahyu.posttest.features.auth.domain.AuthRepository
 import com.ujangwahyu.posttest.features.auth.domain.model.User
 import javax.inject.Inject
@@ -14,7 +16,8 @@ import javax.inject.Inject
  */
 
 class AuthDataRepository @Inject constructor(
-    private val sharedPref: SharedPref
+    private val sharedPref: SharedPref,
+    private val decoder: Base64EncoderDecoder
 ): AuthRepository {
 
     override fun signUp(user: User) {
@@ -23,7 +26,7 @@ class AuthDataRepository @Inject constructor(
             putString(SharedPref.username, user.username)
             putString(SharedPref.nik, user.nik)
             putString(SharedPref.email, user.email)
-            putString(SharedPref.password, user.password?.encodeBase64())
+            putString(SharedPref.password, decoder.encodeToString(user.password?.toByteArray(), Base64.DEFAULT))
         }
     }
 
@@ -33,7 +36,7 @@ class AuthDataRepository @Inject constructor(
             sharedPref.getString(SharedPref.username),
             sharedPref.getString(SharedPref.nik),
             sharedPref.getString(SharedPref.email),
-            sharedPref.getString(SharedPref.password),
+            String(decoder.decode(sharedPref.getString(SharedPref.password), Base64.DEFAULT), Charsets.UTF_8)
         )
     }
 

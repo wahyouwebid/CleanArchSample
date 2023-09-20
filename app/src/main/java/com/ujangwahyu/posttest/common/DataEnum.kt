@@ -1,6 +1,6 @@
 package com.ujangwahyu.posttest.common
 
-enum class Enum(val message: String){
+enum class DataEnum(val message: String){
     USER_INVALID("Incorrect Username or Password"),
     SUCCESS("Successful"),
     USERNAME_EMPTY("Username cannot be empty"),

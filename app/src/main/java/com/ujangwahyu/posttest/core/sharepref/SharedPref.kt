@@ -1,4 +1,4 @@
-package com.ujangwahyu.posttest.core
+package com.ujangwahyu.posttest.core.sharepref
 
 import android.annotation.SuppressLint
 import android.content.Context

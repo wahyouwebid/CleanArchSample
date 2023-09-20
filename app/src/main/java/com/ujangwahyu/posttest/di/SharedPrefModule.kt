@@ -1,7 +1,7 @@
 package com.ujangwahyu.posttest.di
 
 import android.content.Context
-import com.ujangwahyu.posttest.core.SharedPref
+import com.ujangwahyu.posttest.core.sharepref.SharedPref
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class SessionsModule {
+class SharedPrefModule {
 
     @Provides
     @Singleton

@@ -43,6 +43,8 @@ object Dependencies {
     }
 
     object TestingLib {
+        const val robolectric = "org.robolectric:robolectric:${Versions.robolectric}"
+        const val mockito = "org.mockito:mockito-core:${Versions.mockito}"
         const val androidJunit = "androidx.test.ext:junit:${Versions.androidJunit}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
         const val junit = "junit:junit:${Versions.testJunit}"
