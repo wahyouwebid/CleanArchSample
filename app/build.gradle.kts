@@ -28,15 +28,13 @@ android {
         named(debug) {
             isMinifyEnabled = false
             proguardFiles (getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            buildConfigField("String", "socketUrl", "\"http://192.168.1.13:3000\"")
-            buildConfigField("String", "baseUrl", "\"http://192.168.1.13:3033/\"")
+            buildConfigField("String", "baseUrl", "\"https://themealdb.com/api/json/v1/1/\"")
         }
 
         named(release) {
             isMinifyEnabled = true
             proguardFiles (getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            buildConfigField("String", "socketUrl", "\"http://192.168.1.13:3000\"")
-            buildConfigField("String", "baseUrl", "\"http://192.168.1.13:3033/\"")
+            buildConfigField("String", "baseUrl", "\"https://themealdb.com/api/json/v1/1/\"")
         }
     }
 
@@ -69,6 +67,9 @@ dependencies {
     Dependencies.UiLib.apply {
         implementation(material)
         implementation(pretty)
+        implementation(glide)
+        kapt(glideCompiler)
+        implementation(photoView)
     }
 
     Dependencies.NetworkingLib.apply {

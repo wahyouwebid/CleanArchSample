@@ -1,7 +1,6 @@
 package com.ujangwahyu.posttest.features.auth.presentation.ui
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
@@ -49,7 +48,7 @@ class SignFragment: BaseFragment<FragmentSignInBinding>(FragmentSignInBinding::i
 
     override fun setupViewModel() {
         viewModel.signIn.observe(viewLifecycleOwner) {
-            Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+            navigation?.navigate(R.id.action_signFragment_to_searchFragment)
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) {

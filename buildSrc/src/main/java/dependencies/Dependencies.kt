@@ -34,6 +34,9 @@ object Dependencies {
         const val material = "com.google.android.material:material:${Versions.materialUi}"
         const val pretty = "org.ocpsoft.prettytime:prettytime:${Versions.prettyTime}"
         const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
+        const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+        const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+        const val photoView = "com.github.chrisbanes:PhotoView:${Versions.photoView}"
     }
 
     object ReactiveLib {

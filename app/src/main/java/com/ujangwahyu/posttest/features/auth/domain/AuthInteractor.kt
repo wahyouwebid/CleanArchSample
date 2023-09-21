@@ -1,7 +1,6 @@
 package com.ujangwahyu.posttest.features.auth.domain
 
 import com.ujangwahyu.posttest.common.DataEnum
-import com.ujangwahyu.posttest.common.decodeBase64
 import com.ujangwahyu.posttest.common.isValidEmail
 import com.ujangwahyu.posttest.features.auth.domain.model.User
 import com.ujangwahyu.posttest.features.auth.domain.model.ValidationResult

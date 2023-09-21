@@ -1,7 +1,12 @@
 package com.ujangwahyu.posttest.common
 
-import android.util.Base64
+import android.os.Build
+import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.ujangwahyu.posttest.R
 import java.util.regex.Pattern
 
 /**
@@ -12,14 +17,12 @@ import java.util.regex.Pattern
  */
 
 
-fun String.encodeBase64(): String {
-    return Base64.encodeToString(this.toByteArray(), Base64.DEFAULT)
+fun ImageView.loadImage(imageUrl: String?) {
+    Glide.with(this.context)
+        .load(imageUrl)
+        .placeholder(R.drawable.bg_rounded_place_holder)
+        .into(this)
 }
-
-fun String.decodeBase64(): String {
-    return String(Base64.decode(this, Base64.DEFAULT))
-}
-
 fun String.isValidEmail(): Boolean {
     val pattern = Pattern.compile(
         "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
@@ -34,4 +37,11 @@ fun View.show() {
 
 fun View.hide() {
     visibility = View.GONE
+}
+
+
+
+inline fun <reified T : Parcelable> Bundle.parcelable(key: String): T? = when {
+    Build.VERSION.SDK_INT >= 33 -> getParcelable(key, T::class.java)
+    else -> @Suppress("DEPRECATION") getParcelable(key) as? T
 }

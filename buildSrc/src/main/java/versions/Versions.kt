@@ -24,4 +24,6 @@ object Versions {
     const val securityCrypto = "1.1.0-alpha01"
     const val mockito = "3.12.4"
     const val robolectric = "4.6.1"
+    const val glide = "4.12.0"
+    const val photoView = "2.3.0"
 }

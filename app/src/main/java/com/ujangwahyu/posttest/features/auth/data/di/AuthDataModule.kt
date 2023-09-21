@@ -1,6 +1,5 @@
 package com.ujangwahyu.posttest.features.auth.data.di
 
-import com.ujangwahyu.posttest.core.encrypted.AndroidBase64EncoderDecoder
 import com.ujangwahyu.posttest.core.encrypted.Base64EncoderDecoder
 import com.ujangwahyu.posttest.core.sharepref.SharedPref
 import com.ujangwahyu.posttest.features.auth.data.AuthDataRepository
