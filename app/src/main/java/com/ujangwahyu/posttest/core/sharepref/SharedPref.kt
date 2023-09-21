@@ -16,9 +16,7 @@ import androidx.security.crypto.MasterKey
  */
 
 @SuppressLint("CommitPrefEdits")
-class SharedPref constructor(
-    val context: Context
-) {
+class SharedPref(val context: Context) {
     companion object {
         const val keyAlias: String = "_androidx_security_master_key_"
         const val secretSharedPref: String = "secret_shared_prefs"
